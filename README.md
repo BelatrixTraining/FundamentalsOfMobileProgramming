@@ -1,7 +1,7 @@
 # FundamentalsOfMobileProgramming
 Fundamentals of Mobile programming - Septiembre 2017
 
-## Cronograma: 
+## Cronograma
 
  - Horario : sábados de 9 a 13hs.
   
