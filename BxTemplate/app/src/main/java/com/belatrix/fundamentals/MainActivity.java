@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMessage(){
-        snackbar.setText("Hello IOS");
+        snackbar.setText("Hello Belatrix");
         snackbar.show();
     }
     private void rippleEffect() {
@@ -65,6 +65,6 @@ public class MainActivity extends AppCompatActivity {
         imageViewBx= (ImageView) findViewById(R.id.imageViewBx);
         textViewHello= (TextView) findViewById(R.id.textViewHello);
 
-        snackbar= Snackbar.make(constraintLayoutContainer,"",Snackbar.LENGTH_LONG);
+        snackbar= Snackbar.make(constraintLayoutContainer,"Message",Snackbar.LENGTH_LONG);
     }
 }

@@ -33,7 +33,7 @@ Fundamentals of Mobile programming - Septiembre 2017
   * O tambien puedes descargar los archivos en el siguiente link
 
   ```
-  https://github.com/BelatrixTraining/FundamentalsOfMobileProgramming/master.zip
+  https://github.com/BelatrixTraining/FundamentalsOfMobileProgramming/archive/master.zip
   ```
 
  * Después de descargar y descomprimir el archivo, podemos encontrar lo siguiente :
