@@ -4,10 +4,12 @@ import android.animation.Animator;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,12 +30,19 @@ public class MainActivity extends AppCompatActivity {
         imageViewBx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Log.v("CONSOLE", "Hello Android");
                 //bla bla bla bla
                 //updateText();
                 rippleEffect();
                 //showMessage();
+                //showToast();
             }
         });
+    }
+
+    private void showToast(){
+        Toast.makeText(this, "No usar toast",Toast.LENGTH_LONG).show();
     }
 
     private void showMessage(){
@@ -57,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateText() {
-        textViewHello.setText("Hello Android");
+        textViewHello.setText("Hello Belatrix");
     }
 
     private void ui() {

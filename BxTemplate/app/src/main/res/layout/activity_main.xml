@@ -21,13 +21,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_bias="0.0"
         android:id="@+id/imageViewBx" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Belatrix!"
+        android:text="Hello Android!"
         android:textColor="@color/colorBx"
         android:textStyle="bold"
         android:textSize="20sp"
