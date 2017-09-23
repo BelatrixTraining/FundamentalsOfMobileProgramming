@@ -1,5 +1,4 @@
 # FundamentalsOfMobileProgramming
-Fundamentals of Mobile programming - Septiembre 2017
 
 ## Lesson1 
 
