@@ -63,6 +63,11 @@ Fundamentals of Mobile programming - Septiembre 2017
 
 <p align="center"><img src="./images/screenshot.png" height="480"></p>
 
+### Recursos
+
+- Libros recomendados http://fragmentedpodcast.com/tag/books/
+- Compatibilidad de Android Plugin y Gradle https://developer.android.com/studio/releases/gradle-plugin.html
+
 ### Referencias
 
 - Página Oficial de Android https://developer.android.com/index.html
