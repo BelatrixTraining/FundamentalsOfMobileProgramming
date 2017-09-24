@@ -10,6 +10,13 @@ Java Fundamentals , OOP (Object oriented programming) and threads.
 
 - Kotlin http://kotlinlang.org/docs/reference/
 
+- Java 8 Features https://developer.android.com/guide/platform/j8-jack.html
+
+- Emulador genymotions https://www.genymotion.com/
+
+- Google github https://github.com/googlesamples/?query=android
+
+
 ### Referencias
 
 - Página Oficial de Android https://developer.android.com/index.html
