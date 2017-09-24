@@ -16,8 +16,11 @@ Java Fundamentals , OOP (Object oriented programming) and threads.
 
 - Google github https://github.com/googlesamples/?query=android
 
+- Canal oficial en Youtube de Android Developers https://www.youtube.com/user/androiddevelopers
+
 
 ### Referencias
 
 - Página Oficial de Android https://developer.android.com/index.html
+
 - Android Studio https://developer.android.com/studio/index.html
