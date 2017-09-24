@@ -24,6 +24,7 @@ Fundamentals of Mobile programming - Septiembre 2017
 
 - Android - Fragments, Navigation, Storage options and  Notification.
 
+
 ## Requisitos
 
 - Entorno de desarrollo , usaremos el IDE Android Studio 2.3.3
@@ -66,7 +67,10 @@ Fundamentals of Mobile programming - Septiembre 2017
 ### Recursos
 
 - Libros recomendados http://fragmentedpodcast.com/tag/books/
+
 - Compatibilidad de Android Plugin y Gradle https://developer.android.com/studio/releases/gradle-plugin.html
+
+- Google codelabs https://codelabs.developers.google.com/
 
 ### Referencias
 
