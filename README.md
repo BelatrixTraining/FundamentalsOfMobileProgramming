@@ -14,6 +14,16 @@ Fundamentals of Mobile programming - Septiembre 2017
 - nombre : Eduardo Medina
 - email : emedinaa@gmail.com
 
+## Temario
+
+- Java Fundamentals , OOP (Object oriented programming) and threads.
+
+- Android development, Fundamentals, Gradle , Android Studio and Material design.
+
+- Android - User Interface(Layout and Widgets), User Events ,RecyclerView and Adapters.
+
+- Android - Fragments, Navigation, Storage options and  Notification.
+
 ## Requisitos
 
 - Entorno de desarrollo , usaremos el IDE Android Studio 2.3.3
