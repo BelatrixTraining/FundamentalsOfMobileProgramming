@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,8 +40,12 @@ public class RegisterBaseActivity extends AppCompatActivity {
         butSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(validateForm()){
                     //enviar al servidor
-                    Toast.makeText(RegisterBaseActivity.this,"Enviando al servidor",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterBaseActivity.this,"Enviando al servidor", Toast.LENGTH_LONG).show();
+                }
+
 
             }
         });
@@ -49,11 +54,40 @@ public class RegisterBaseActivity extends AppCompatActivity {
 
     private boolean validateForm() {
 
+        //captura los valores
         name = eteName.getText().toString().trim();
         email = eteEmail.getText().toString().trim();
         password1 = etePassword1.getText().toString().trim();
         password2 = etePassword2.getText().toString().trim();
+
         clear();
+
+        Log.v("CONSOLE", name+ " "+email + " "+password1+ " "+password2);
+
+        if(name.isEmpty()){
+            eteName.setError("Horror name !");
+            return false;
+        }
+
+        if(email.isEmpty()){
+            eteEmail.setError("Horror email!");
+            return false;
+        }
+
+        if(password1.isEmpty()){
+            etePassword1.setError("Horror password !");
+            return false;
+        }
+
+        if(password2.isEmpty()){
+            etePassword2.setError("Horror password 2!");
+            return false;
+        }
+
+        if(!isEmailValid(email)){
+            eteEmail.setError("No es email!");
+            return false;
+        }
 
         return true;
     }

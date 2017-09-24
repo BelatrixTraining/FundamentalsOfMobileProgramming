@@ -42,7 +42,14 @@ public class GalleryActivity extends AppCompatActivity {
         txtImg.setText("Imagen " + count);
 
         //Events
-        /*img.setOnClickListener(new View.OnClickListener() {
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -56,15 +63,15 @@ public class GalleryActivity extends AppCompatActivity {
 
                 //count--;
             }
-        });*/
+        });
     }
 
     /**
      * Declarar los elementos de la UI
      */
     private void ui() {
-        img= (ImageView)findViewById(R.id.img);
-        btnImg= (Button)findViewById(R.id.butImg);
+        img= (ImageView) findViewById(R.id.img);
+        btnImg= (Button)findViewById(R.id.button);
         txtImg = (TextView)findViewById(R.id.txtImg);
     }
 
@@ -73,23 +80,26 @@ public class GalleryActivity extends AppCompatActivity {
      */
     public void  click_handler(View v)
     {
-        Log.v("CONSOLE", "Hello Bx !");
+        //Log.v("CONSOLE", "Hello Bx !");
 
          /*
         Toast.makeText(this, "Hello Bx !", Toast.LENGTH_LONG).show();
          */
 
-        /*
         count++;
-        count--;
-        Log.v("CONSOLE", "count "+count);
-        */
+        //count--;
+        int imageId= 0;
 
-        /*
-        int imageId= images[0];
+        if(count<images.length){
+
+           imageId= images[count];
+           img.setImageResource(imageId);
+           if(count==images.length-1){
+               count=0;
+           }
+        }
+
         Log.v("CONSOLE", "imageId "+imageId);
-        */
-
     }
 
 }
