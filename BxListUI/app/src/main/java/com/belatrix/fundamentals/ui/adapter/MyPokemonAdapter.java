@@ -19,45 +19,23 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Created by emedinaa on 14/08/17.
+ * Created by emedinaa on 30/09/17.
  */
 
-public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
+public class MyPokemonAdapter  extends RecyclerView.Adapter<MyPokemonAdapter.ViewHolder>{
 
-    private List<Pokemon> pokemonList;
-    private Context context;
-    private OnItemClickListener onItemClickListener;
+    private final List<Pokemon> pokemons;
+    private final Context context;
+    private final MyInterface myInterface;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView tviName;
-        public ImageView iviPhoto;
-        public View view;
-        public ViewHolder(View  v) {
-            super(v);
-            this.view = v;
-            tviName= (TextView) v.findViewById(R.id.tviName);
-            iviPhoto= (ImageView) v.findViewById(R.id.iviPhoto);
-        }
-    }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public PokemonAdapter(Context context,List<Pokemon> pokemonList) {
+    public MyPokemonAdapter(Context context, MyInterface myInterface, List<Pokemon> pokemons) {
         this.context= context;
-        this.pokemonList = pokemonList;
+        this.pokemons = pokemons;
+        this.myInterface = myInterface;
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
-
-    // Create new views (invoked by the layout manager)
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                         int viewType) {
+    public MyPokemonAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_pokemon, parent, false);
@@ -66,15 +44,26 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         // - replace the contents of the view with that element
-        Pokemon pokemon= pokemonList.get(position);
+        Pokemon pokemon= pokemons.get(position);
+
+        final int itemPosition= position;
+        final String pokemonName=pokemon.getName();
+
         holder.tviName.setText(pokemon.getName());
         holder.iviPhoto.setImageBitmap(getBitmapFromAssets(pokemon.getPhoto()));
 
+        holder.iviPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(myInterface!=null){
+                    myInterface.showItemMessage(itemPosition,pokemonName);
+                    //MainActivity.noHacer();
+                }
+            }
+        });
         /*holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,10 +76,9 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         });*/
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return pokemonList.size();
+        return pokemons.size();
     }
 
     public Bitmap getBitmapFromAssets(String fileName) {
@@ -105,5 +93,18 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         Bitmap bitmap = BitmapFactory.decodeStream(istr);
 
         return bitmap;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        public TextView tviName;
+        public ImageView iviPhoto;
+        public View view;
+        public ViewHolder(View  v) {
+            super(v);
+            this.view = v;
+            tviName= (TextView) v.findViewById(R.id.tviName);
+            iviPhoto= (ImageView) v.findViewById(R.id.iviPhoto);
+        }
     }
 }

@@ -10,15 +10,20 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.belatrix.fundamentals.data.PokemonData;
 import com.belatrix.fundamentals.model.Pokemon;
+import com.belatrix.fundamentals.ui.adapter.MyInterface;
+import com.belatrix.fundamentals.ui.adapter.MyPokemonAdapter;
 import com.belatrix.fundamentals.ui.adapter.OnItemClickListener;
 import com.belatrix.fundamentals.ui.adapter.PokemonAdapter;
+import com.belatrix.fundamentals.ui.events.ClickListener;
+import com.belatrix.fundamentals.ui.events.RecyclerTouchListener;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements OnItemClickListener , MyInterface{
 
     private final int DEFAULT_SPANCOUNT=3;
     private RecyclerView recyclerViewPokemon;
@@ -26,7 +31,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
     private List<Pokemon> pokemonList;
     private PokemonAdapter pokemonAdapter;
+    private MyPokemonAdapter myPokemonAdapter;
 
+    public static void noHacer(String message){
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +66,14 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     }
 
     private void renderPokemons(){
+        //paso5
         pokemonAdapter = new PokemonAdapter(this,pokemonList);
-        pokemonAdapter.setOnItemClickListener(this);
+        //myPokemonAdapter= new MyPokemonAdapter(this,this,pokemonList);
+        //pokemonAdapter.setOnItemClickListener(this);
+
+        //paso 6
         recyclerViewPokemon.setAdapter(pokemonAdapter);
+        //recyclerViewPokemon.setAdapter(myPokemonAdapter);
     }
 
     private void loadPokemonData() {
@@ -69,11 +83,12 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
     private void ui() {
         recyclerViewPokemon= (RecyclerView)findViewById(R.id.recyclerViewPokemon);
+        //mLayoutManager= new LinearLayoutManager(this);//,LinearLayoutManager.VERTICAL,)
         mLayoutManager = new GridLayoutManager(this,DEFAULT_SPANCOUNT);
         recyclerViewPokemon.setLayoutManager(mLayoutManager);
 
         //events
-        /*recyclerViewPokemon.addOnItemTouchListener(new RecyclerTouchListener(this, recyclerViewPokemon, new ClickListener() {
+        recyclerViewPokemon.addOnItemTouchListener(new RecyclerTouchListener(this, recyclerViewPokemon, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 if(pokemonList!=null){
@@ -84,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
             @Override
             public void onLongClick(View view, int position) {}
-        }));*/
+        }));
     }
 
     @Override
@@ -93,5 +108,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             Pokemon pokemon= pokemonList.get(position);
             gotoDetailsAnimation(pokemon,imageView);
         }
+    }
+
+    @Override
+    public void showItemMessage(int position, String message) {
+        Toast.makeText(this, "Item "+position+ " "+message,
+                Toast.LENGTH_SHORT).show();
     }
 }
