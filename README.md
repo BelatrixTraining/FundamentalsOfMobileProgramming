@@ -4,7 +4,150 @@
 
 Android development, Fundamentals, Gradle , Android Studio and Material design
 
-### Referencias
+- Topics
 
-- Página Oficial de Android https://developer.android.com/index.html
-- Android Studio https://developer.android.com/studio/index.html
+	* Overview
+	* User Interface
+
+	    - Layouts
+
+	    - Input Controls (Widgets)
+	    
+	    - Material Design
+	    
+	* Input events
+	* Exercises
+
+- Group Activities
+
+* Group Activity #1 : Knowing the layouts
+
+* Group Activity #2 : Learning to use the weights
+
+* Group Activity #3 : Creating my first UI
+
+# .
+
+## Overview
+
+  - Estructura de un elemento XML :
+  
+```
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+    
+        <TextView android:text="Hello World!" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+```
+
+  - ID :
+  
+```
+      android:id="@+id/img"
+```
+
+```
+      <TextView
+            android:id="@+id/txtImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+```
+    
+  - Atributos :
+    
+```
+        android:layout_width="300dp"
+```
+    
+  - En el código podemos invocar a los elementos XML de la siguiente manera :
+  
+```
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
+      }
+```
+    
+```
+     private ImageView img;
+     private Button btnImg;
+     private TextView txtImg;
+
+     img= (ImageView)findViewById(R.id.img);
+     btnImg= (Button)findViewById(R.id.butImg);
+     txtImg = (TextView)findViewById(R.id.txtImg);
+```
+
+
+## User Interface
+
+  * Layouts
+  
+    - LinearLayout
+    
+    <img src="../images/linearlayout.png" height="480">
+
+    - RelativeLayout
+    
+    <img src="../images/relativelayout.png" height="480">
+         
+    - Listview, GridView , RecyclerView
+    
+    <img src="../images/listview.png" height="480">
+    
+    <img src="../images/gridview.png" height="480">
+  
+  * Exercices
+
+    - LinearLayout
+    
+    <img src="../images/linearlayout_sample.png" height="480">
+
+    <img src="../images/linearlayout_horz_sample.png" height="480">
+    
+    <img src="../images/linearlayout_weight_ver_sample.png" height="480">
+    
+    <img src="../images/linearlayout_weight_hor_sample.png" height="480">
+    
+    - Login Sample
+    
+    <img src="../images/login_sample.png" height="480">
+    <img src="../images/login_sample_xml.png" height="480">
+
+## Exercises :
+
+ - Layout Examples
+  
+  <img src="../examples/example1/Example1.png" height="480">
+  <img src="../examples/example2/Example2.png" height="480">
+
+  <img src="../examples/example3/Example3.png" height="480">
+  <img src="../examples/example4/Example4.png" height="480">
+  
+  <img src="../examples/example5/Example5.png" height="480">
+  <img src="../examples/example6/Example6.png" height="480">
+  
+  <img src="../examples/Example8.png" height="480">
+  <img src="../examples/Example9.png" height="480">
+
+## References :
+
+   - [https://developer.android.com/guide/topics/ui/index.html](https://developer.android.com/guide/topics/ui/index.html)
+
+   - [https://developer.android.com/training/basics/firstapp/building-ui.html](https://developer.android.com/training/basics/firstapp/building-ui.html)
+
+   - [https://developer.android.com/design/index.html](https://developer.android.com/design/index.html)
+
+   - [https://developer.android.com/guide/topics/ui/declaring-layout.html](https://developer.android.com/guide/topics/ui/declaring-layout.html)
+
+   - [http://android.inspired-ui.com/](http://android.inspired-ui.com/)
+   
