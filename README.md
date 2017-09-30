@@ -94,17 +94,17 @@ Android development, Fundamentals, Gradle , Android Studio and Material design
   
     - LinearLayout
     
-    <img src="./images/linearlayout.png" height="480">
+    <img src="./images/linearlayout.png" height="320">
 
     - RelativeLayout
     
-    <img src="./images/relativelayout.png" height="480">
+    <img src="./images/relativelayout.png" height="320">
          
     - Listview, GridView , RecyclerView
     
-    <img src="./images/listview.png" height="480">
+    <img src="./images/listview.png" height="320">
     
-    <img src="./images/gridview.png" height="480">
+    <img src="./images/gridview.png" height="320">
   
   * Exercices
 
@@ -114,7 +114,7 @@ Android development, Fundamentals, Gradle , Android Studio and Material design
 
     <img src="./images/linearlayout_horz_sample.png" height="480">
     
-    <img src="./images/linearlayout_weight_ver_sample.png" height="480">
+    <img src="./images/linearlayout_weight_ver_sample.png" height="320">
     
     <img src="./images/linearlayout_weight_hor_sample.png" height="480">
     
@@ -127,17 +127,13 @@ Android development, Fundamentals, Gradle , Android Studio and Material design
 
  - Layout Examples
   
-  <img src="./examples/example1/Example1.png" height="480">
-  <img src="./examples/example2/Example2.png" height="480">
+  <img src="./examples/example1/Example1.png" height="480"> <img src="./examples/example2/Example2.png" height="480">
 
-  <img src="./examples/example3/Example3.png" height="480">
-  <img src="./examples/example4/Example4.png" height="480">
+  <img src="./examples/example3/Example3.png" height="480"> <img src="./examples/example4/Example4.png" height="480">
   
-  <img src="./examples/example5/Example5.png" height="480">
-  <img src="./examples/example6/Example6.png" height="480">
+  <img src="./examples/example5/Example5.png" height="480"> <img src="./examples/example6/Example6.png" height="480">
   
-  <img src="./examples/Example8.png" height="480">
-  <img src="./examples/Example9.png" height="480">
+  <img src="./examples/Example8.png" height="480"> <img src="./examples/Example9.png" height="480">
 
 ## References :
 
