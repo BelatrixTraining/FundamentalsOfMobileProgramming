@@ -12,6 +12,9 @@
     <color name="gray5">#A2A2A0</color>
     <color name="black">#000000</color>
 
+    <color name="black90">#E6000000</color>
+    <color name="black50">#80000000</color>
+
     <color name="gray">#F2F2F2</color>
     <color name="blue">#4B7BD7</color>
     <color name="skyblue">#00C5FD</color>
