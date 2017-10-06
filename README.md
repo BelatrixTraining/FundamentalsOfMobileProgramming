@@ -9,8 +9,8 @@ Fundamentals of Mobile programming - Septiembre 2017
 
 - Storage options I
 
- - Sharedpreferences
- - Base de datos SQLITE
+  - Sharedpreferences
+  - Base de datos SQLITE
 
 ### Referencias
 
