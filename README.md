@@ -1,80 +1,19 @@
 # FundamentalsOfMobileProgramming
 Fundamentals of Mobile programming - Septiembre 2017
 
-## Cronograma
+## Lesson3
 
- - Horario : sábados de 9 a 13hs.
+-  Fragments
 
- - Fecha de inicio: Sábado 23 de Septiembre.
+-  Navigation
 
- - Fecha de finalización: Sábado 07 de Octubre.
+- Storage options I
 
-## Instructor
-
-- nombre : Eduardo Medina
-- email : emedinaa@gmail.com
-
-## Temario
-
-- Java Fundamentals , OOP (Object oriented programming) and threads.
-
-- Android development, Fundamentals, Gradle , Android Studio and Material design.
-
-- Android - User Interface(Layout and Widgets), User Events ,RecyclerView and Adapters.
-
-- Android - Fragments, Navigation, Storage options and  Notification.
-
-
-## Requisitos
-
-- Entorno de desarrollo , usaremos el IDE Android Studio 2.3.3
-
-- Instala Android Studio
-
-  * Trabajaremos con la versión 2.3.3 de Android Studio,  que pueden descargar desde aquí https://developer.android.com/studio/index.html .
-
-- Descargar los archivos
-
-  * Si usas GIT , puedes descargar los archivos de la siguiente manera :
-
-  ```
-    git clone https://github.com/BelatrixTraining/FundamentalsOfMobileProgramming.git Template
-  ```
-
-  * O tambien puedes descargar los archivos en el siguiente link
-
-  ```
-  https://github.com/BelatrixTraining/FundamentalsOfMobileProgramming/archive/master.zip
-  ```
-
- * Después de descargar y descomprimir el archivo, podemos encontrar lo siguiente :
-
-  ```
-    * BxTemplate
-    * images
-    * README.md
-  ```
-
-
-- Ejecutar el proyecto BxTemplate
-
-  ```
-    Run / Run App
-  ```
-
-<p align="center"><img src="./images/screenshot.png" height="480"></p>
-
-### Recursos
-
-- Libros recomendados http://fragmentedpodcast.com/tag/books/
-
-- Compatibilidad de Android Plugin y Gradle https://developer.android.com/studio/releases/gradle-plugin.html
-
-- Google codelabs https://codelabs.developers.google.com/
-
-- Cursos de Android en Udacity https://www.udacity.com/
+ - Sharedpreferences
+ - Base de datos SQLITE
 
 ### Referencias
 
-- Página Oficial de Android https://developer.android.com/index.html
-- Android Studio https://developer.android.com/studio/index.html
+- Storage Options https://developer.android.com/guide/topics/data/data-storage.html
+
+- Saving data https://developer.android.com/training/basics/data-storage/index.html
