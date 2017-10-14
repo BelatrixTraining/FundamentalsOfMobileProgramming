@@ -16,7 +16,10 @@ import com.belatrix.fundamentals.ui.fragments.AndroidFragment;
 import com.belatrix.fundamentals.ui.fragments.BugFragment;
 import com.belatrix.fundamentals.ui.fragments.HelpFragment;
 
-
+/**
+ * material icons
+ * https://material.io/icons/#ic_android
+ */
 public class NavigationDrawerActivity extends AppCompatActivity implements OnNavListener {
 
     private Toolbar toolbar;

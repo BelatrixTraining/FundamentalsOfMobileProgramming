@@ -67,4 +67,13 @@ public class StarWarsEvent extends BaseModel  {
         dest.writeString(description);
         dest.writeString(photo);
     }
+
+    @Override
+    public String toString() {
+        return "StarWarsEvent{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
+    }
 }

@@ -40,13 +40,13 @@ public class MainMessageActivity extends AppCompatActivity implements MessageLis
 
     @Override
     public void recibiryEnviardesdeFragment(String message) {
-        Log.v(TAG, "2 recibiryEnviarMensaje " + message);
+        Log.v(TAG, "2 MainMessageActivity recibiryEnviarMensaje " + message);
         twoFragment.mostrarMensaje(message);
     }
 
     public void recibiryEnviarMensaje(String message)
     {
-        Log.v(TAG, "2 recibiryEnviarMensaje " + message);
+        Log.v(TAG, "2 MainMessageActivity recibiryEnviarMensaje " + message);
         twoFragment.mostrarMensaje(message);
     }
 

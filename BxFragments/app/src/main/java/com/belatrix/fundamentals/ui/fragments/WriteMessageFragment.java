@@ -107,7 +107,7 @@ public class WriteMessageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 message= eteMessage.getText().toString();
-                Log.v(TAG, "1 message " + message);
+                Log.v(TAG, "1 WriteMessageFragment message " + message);
                 if(mListener!=null)
                 {
                     mListener.recibiryEnviardesdeFragment(message);

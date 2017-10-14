@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.belatrix.fundamentals.model.StarWarsEvent;
 import com.belatrix.fundamentals.ui.fragments.EventDetailsFragment;
@@ -55,6 +56,7 @@ public class StarWarsEventsTabletActivity extends AppCompatActivity implements M
     }
 
     private void sendDataToEventDetail(StarWarsEvent starWarsEvent){
+        Log.v("CONSOLE", "2 StarWarsEventsTabletActivity starWarsEvent "+starWarsEvent);
         eventDetailsFragment.showEventInfo(starWarsEvent);
     }
 

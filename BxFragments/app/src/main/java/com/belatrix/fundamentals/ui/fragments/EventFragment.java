@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +96,7 @@ public class EventFragment extends Fragment {
                 if(events!=null){
                     StarWarsEvent starWarsEvent= events.get(position);
                     //gotoDetails(starWarsEvent);
+                    Log.v("CONSOLE", "1 EventFragment starWarsEvent "+starWarsEvent);
                     if(mListener!=null){
                         mListener.goToEventDetail(starWarsEvent);
                     }

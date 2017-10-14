@@ -93,8 +93,7 @@ public class ShowMessageFragment extends Fragment {
 
     public void mostrarMensaje(String message)
     {
-
-        Log.v(TAG, "mostrarMensaje " + message);
+        Log.v(TAG, "3  ShowMessageFragment mostrarMensaje " + message);
         if(TextUtils.isEmpty(message))return;
         resultMessage+="\n"+message;
         tviMessage.setText(resultMessage);

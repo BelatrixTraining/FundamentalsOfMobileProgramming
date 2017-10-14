@@ -1,6 +1,8 @@
 package com.belatrix.fundamentals.ui.fragments;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,23 +10,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.belatrix.fundamentals.BxActivity;
+import com.belatrix.fundamentals.MyFragmentCallback;
 import com.belatrix.fundamentals.R;
-import com.belatrix.fundamentals.model.StarWarsEvent;
-import com.squareup.picasso.Picasso;
-
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {EventDetailsFragment.OnFragmentInteractionListener} interface
+ * {@link BxFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EventDetailsFragment#newInstance} factory method to
+ * Use the {@link BxFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventDetailsFragment extends Fragment {
+public class BxFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,14 +35,11 @@ public class EventDetailsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private MyFragmentListener mListener;
+    private MyFragmentCallback mListener;
 
-    private ImageView imageViewEvent;
-    private TextView textViewEvent;
+    private TextView textView;
 
-    private StarWarsEvent starWarsEvent;
-
-    public EventDetailsFragment() {
+    public BxFragment() {
         // Required empty public constructor
     }
 
@@ -51,11 +49,11 @@ public class EventDetailsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EventDetailsFragment.
+     * @return A new instance of fragment BxFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EventDetailsFragment newInstance(String param1, String param2) {
-        EventDetailsFragment fragment = new EventDetailsFragment();
+    public static BxFragment newInstance(String param1, String param2) {
+        BxFragment fragment = new BxFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,17 +74,17 @@ public class EventDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_event_details, container, false);
-        ui(view);
-        return view;
+        View viewContainer=inflater.inflate(R.layout.fragment_bx, container, false);
+        textView= (TextView) viewContainer.findViewById(R.id.textView);
+        return viewContainer;
     }
 
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof MyFragmentListener) {
-            mListener = (MyFragmentListener) context;
+        if (context instanceof MyFragmentCallback) {
+            mListener = (MyFragmentCallback) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -99,38 +97,50 @@ public class EventDetailsFragment extends Fragment {
         mListener = null;
     }
 
-    private void ui(View view) {
-        imageViewEvent= (ImageView)view.findViewById(R.id.imageViewEvent);
-        textViewEvent= (TextView)view.findViewById(R.id.textViewEvent);
-        //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        extras();
-        populate();
+
+        //textView=(TextView) getView().findViewById(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //showMessage();
+                sendMessageToActivity();
+            }
+        });
     }
 
-
-    private void extras() {
-        if(getActivity().getIntent()!=null && getActivity().getIntent().getExtras()!=null){
-            starWarsEvent= (StarWarsEvent) getActivity().getIntent().getExtras().getParcelable("EVENT");
+    //Comunicación de Fragment a un Activity (1)
+    private void sendMessageToActivity(){
+        Log.v("CONSOLE", " 1 BxFragment con callback");
+        /*((BxActivity)getActivity()).
+                showMessageFromActivity("Hello Activity from Fragment");*/
+        if(mListener!=null){
+            mListener.comunicarFragmentconActivity("Hello Activity from Fragment");
         }
     }
-
-    //https://developer.android.com/topic/performance/graphics/load-bitmap.html
-    private void populate() {
-        if(starWarsEvent!=null){
-            textViewEvent.setText(starWarsEvent.getTitle());
-            Picasso.with(imageViewEvent.getContext()).load(starWarsEvent.getPhoto()).into(
-                    imageViewEvent);
-        }
+    private void showMessage() {
+        Toast.makeText(getActivity(),"Hello Fragment",Toast.LENGTH_LONG).show();
     }
 
-    public void showEventInfo(StarWarsEvent starWarsEvent){
-        Log.v("CONSOLE", "3 EventDetailsFragment starWarsEvent "+starWarsEvent);
-        this.starWarsEvent= starWarsEvent;
-        populate();
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+
+    public void hideFragment(){
+        Log.v("CONSOLE", " (2)2 BxFragment hideFragment()");
+        getView().setVisibility(View.GONE);
+    }
+
+    public void changeTextColor(){
+        textView.setTextColor(Color.BLUE);
     }
 }
