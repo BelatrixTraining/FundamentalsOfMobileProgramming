@@ -1,12 +1,9 @@
 # FundamentalsOfMobileProgramming
 Fundamentals of Mobile programming - Septiembre 2017
 
-## Instructor
+## Lesson4
 
-- nombre : Eduardo Medina
-- email : emedinaa@gmail.com
-
-## Conexiñon Remota
+## Conexión Remota
 
 API
 - https://obscure-earth-55790.herokuapp.com/api/users
