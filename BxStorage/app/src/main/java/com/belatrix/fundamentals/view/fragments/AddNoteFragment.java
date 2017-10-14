@@ -98,10 +98,16 @@ public class AddNoteFragment extends Fragment {
                     addNote();
                     closeActivity();
                 }
+
+                //addNoteTest();
             }
         });
     }
 
+    private void addNoteTest(){
+        NoteEntity noteEntity= new NoteEntity("My note","Esta esa una nota",null);
+        mListener.getCrudOperations().addNote(noteEntity);
+    }
     private boolean validateForm(){
         //ui
         clearForm();

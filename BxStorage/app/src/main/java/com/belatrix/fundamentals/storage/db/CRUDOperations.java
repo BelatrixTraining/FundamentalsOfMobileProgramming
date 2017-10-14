@@ -108,6 +108,7 @@ public class CRUDOperations {
 	}
 
 	//--------------------------------------------
+	//public int deleteNote(NoteEntity noteEntity) throws SQLException
 	public int deleteNote(NoteEntity noteEntity)
 	{
 		 SQLiteDatabase db = helper.getWritableDatabase(); 
