@@ -36,4 +36,15 @@ dependencies {
 
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.ext.junitVersion"
+
+    //RETROFIT https://github.com/square/retrofit
+    //compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    //GSON https://github.com/google/gson
+    //compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    //INTERCEPTOR
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 }
