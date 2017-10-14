@@ -4,11 +4,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.belatrix.fundamentals.model.entity.UserEntity;
 import com.belatrix.fundamentals.storage.PreferencesHelper;
+import com.belatrix.fundamentals.storage.request.ApiClient;
+import com.belatrix.fundamentals.storage.request.entity.LogInRaw;
+import com.belatrix.fundamentals.storage.request.entity.LogInResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,7 +55,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (validateForm()) {
-                    gotoMain();
+                    //gotoMain();
+
+                    login();
                 }
             }
         });
@@ -57,6 +69,49 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void login() {
+        final LogInRaw logInRaw= new LogInRaw();
+        logInRaw.setUsername(username);
+        logInRaw.setPassword(password);
+
+        Call<LogInResponse> call=ApiClient.getMyApiClient().login(logInRaw);
+        call.enqueue(new Callback<LogInResponse>() {
+            @Override
+            public void onResponse(Call<LogInResponse> call, Response<LogInResponse> response) {
+                if(response!=null){
+                    if(response.isSuccessful()){
+                        LogInResponse logInResponse= response.body();
+                        if(logInResponse!=null){
+                            if(logInResponse.getStatus()==200){
+                                Log.v("CONSOLE", "success "+logInResponse);
+                                saveSession(logInResponse);
+                                gotoMain();
+                            }else{
+                                Log.v("CONSOLE", "error "+logInResponse);
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogInResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,
+                        "error "+t.getMessage(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+    private void saveSession(LogInResponse logInResponse) {
+        UserEntity userEntity=logInResponse.getData();
+        PreferencesHelper.saveSession(this, userEntity.getFirstname(),userEntity.getId());
+    }
+
+    /*
+    {"msg":"error unable to log in","status":404,"data":{}}
+     */
     private void gotoUserRegister() {
         Intent intent= new Intent(this,RegisterActivity.class);
         startActivity(intent);

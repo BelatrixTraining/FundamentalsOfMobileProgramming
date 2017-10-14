@@ -50,4 +50,13 @@ public class LogInResponse {
     public void setData(UserEntity data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "LogInResponse{" +
+                "msg='" + msg + '\'' +
+                ", status=" + status +
+                ", data=" + data +
+                '}';
+    }
 }
