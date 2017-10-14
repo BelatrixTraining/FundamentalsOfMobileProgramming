@@ -18,6 +18,7 @@ public class PreferencesHelper {
         SharedPreferences.Editor editor = getEditor(context);
         editor.remove(PREFERENCES_USERNAME);
         editor.remove(PREFERENCES_PASSWORD);
+        //editor.clear();
         editor.apply();
     }
 

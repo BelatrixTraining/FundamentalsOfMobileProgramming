@@ -27,6 +27,8 @@
             android:id="@+id/eteUsername"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
             android:layout_marginTop="169dp" />
 
         <EditText
@@ -37,6 +39,8 @@
             android:ems="10"
             android:id="@+id/etePassword"
             android:layout_marginBottom="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:layout_centerHorizontal="true" />
 
         <Button
@@ -56,6 +60,7 @@
             android:padding="5dp"
             android:background="#D5EDED"
             android:text="Registrar"
+
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="40dp" />
     </LinearLayout>

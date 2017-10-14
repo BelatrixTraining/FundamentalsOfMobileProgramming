@@ -52,7 +52,6 @@ public class NoteActivity extends AppCompatActivity implements OnNoteListener, M
         }
     }
 
-
     private  void changeFragment(int id,Bundle bundle)
     {
         Fragment fragment= null;

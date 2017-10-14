@@ -1,6 +1,7 @@
 package com.belatrix.fundamentals;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,14 +19,21 @@ public class LoginActivity extends AppCompatActivity {
     private String username;
     private String password;
 
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //setUpSp();
         init();
     }
+
+    /*private void setUpSp() {
+        sharedPreferences=
+                getSharedPreferences("com.belatrix.fundamentals", Context.MODE_PRIVATE);
+    }*/
 
     private void init() {
         eteUsername=(EditText)findViewById(R.id.eteUsername);
@@ -55,18 +63,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void gotoMain() {
-
         savePreferences();
         Intent intent= new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
     private void savePreferences() {
-
         PreferencesHelper.saveSession(this,username,password);
     }
 
+    private void clearForm(){
+        eteUsername.setError(null);
+        etePassword.setError(null);
+    }
+
     private boolean validateForm() {
+        clearForm();
         username= eteUsername.getText().toString();
         password= etePassword.getText().toString();
 

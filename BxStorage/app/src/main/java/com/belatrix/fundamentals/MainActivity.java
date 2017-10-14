@@ -37,22 +37,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //populate();
+        setUpDb();
         init();
         //loadData();
     }
 
-    private void loadData() {
+    private void setUpDb() {
         crudOperations= new CRUDOperations(new MyDatabase(this));
+        long count=crudOperations.getNoteCountWithStatement();
+        if(count<=0){
+            populate();
+        }
+    }
+
+    private void loadData() {
         lsNoteEntities= crudOperations.getAllNotes();
         noteAdapter= new NoteAdapter(this,lsNoteEntities);
         lstNotes.setAdapter(noteAdapter);
-
     }
 
-    private void populate() {
+    /*private void queryCallback(){
+        onSuccess(){
+            noteAdapter= new NoteAdapter(this,lsNoteEntities);
+            lstNotes.setAdapter(noteAdapter);
+        }
+        onError(){
 
-        CRUDOperations crudOperations= new CRUDOperations(new MyDatabase(this));
+        }
+    }*/
+
+    private void populate() {
         crudOperations.addNote(new NoteEntity("Mi Nota","Esta es un nota ",null));
         crudOperations.addNote(new NoteEntity("Segunda Nota","Esta es la segunds nota ",null));
         crudOperations.addNote(new NoteEntity("Tercera Nota","Esta es la tercera nota ",null));
